@@ -15,7 +15,7 @@ class Var(object):
     name = str(getenv('name', 'FileStreamBot')) #Optional
     SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', '60'))
     WORKERS = int(getenv('WORKERS', '4'))
-    BIN_CHANNEL = int(getenv('BIN_CHANNEL', '-100XXXXXXXX')) #Required
+    BIN_CHANNEL = int(getenv('BIN_CHANNEL', '-1003078994544')) #Required
     PORT = int(getenv('PORT', '3000'))
     BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
@@ -32,9 +32,9 @@ class Var(object):
     FQDN = str(getenv('FQDN', '0.0.0.0:3000')) if not ON_HEROKU or getenv('FQDN', '0.0.0.0:3000') else APP_NAME+'.herokuapp.com'
     HAS_SSL=bool(getenv('HAS_SSL',False))
     if HAS_SSL:
-        URL = "https://filestreambot-pro-js53.onrender.com/".format(FQDN) #Required
+        URL = "https://edustream-video.cariyep778.workers.dev/".format(FQDN) #Required
     else:
-        URL = "https://filestreambot-pro-js53.onrender.com/".format(FQDN) #Required
+        URL = "https://edustream-video.cariyep778.workers.dev/".format(FQDN) #Required
     DATABASE_URL = str(getenv('DATABASE_URL', ' ')) #Required
     UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', ' ')) #Required
     BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "-1001362659779")).split())) #Leave as it is.
