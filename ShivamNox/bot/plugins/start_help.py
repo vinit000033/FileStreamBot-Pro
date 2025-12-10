@@ -70,7 +70,7 @@ async def start(b, m):
         except Exception:
             await b.send_message(
                 chat_id=m.chat.id,
-                text="<i>𝓢𝓸𝓶𝓮𝓽𝓱𝓲𝓷𝓰 𝔀𝓮𝓷𝓽 𝔀𝓻𝓸𝓷𝓰</i> <b> <a href='https://t.me/pulsehub'>CLICK HERE FOR SUPPORT </a></b>",
+                text="<i>𝓢𝓸𝓶𝓮𝓽𝓱𝓲𝓷𝓰 𝔀𝓮𝓷𝓽 𝔀𝓻𝓸𝓷𝓰</i> <b> <a href='https://t.me/pulsehub1'>CLICK HERE FOR SUPPORT </a></b>",
                 
                 disable_web_page_preview=True)
             return
@@ -88,11 +88,11 @@ I even support channels for effortless sharing. 📡
 ''',
     reply_markup=InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("☁️ Support", url="https://t.me/pulsehub"),
-             InlineKeyboardButton("⚡️ Updates", url="https://t.me/pulsehub")],
+            [InlineKeyboardButton("☁️ Support", url="https://t.me/pulsehub1"),
+             InlineKeyboardButton("⚡️ Updates", url="https://t.me/pulsehub1")],
             [InlineKeyboardButton("❓ Help", callback_data="help"),
              InlineKeyboardButton("ℹ️ About", callback_data="about")],
-            [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/pulsehub")]
+            [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/pulsehub1")]
         ]
     )
 )
@@ -109,7 +109,7 @@ async def on_help_button(client, callback_query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("☁️ Support", url="https://t.me/pulsehub")],
+                [InlineKeyboardButton("☁️ Support", url="https://t.me/pulsehub1")],
                 [InlineKeyboardButton("🔙 Back", callback_data="back")]
             ]
         )
@@ -129,12 +129,12 @@ async def on_about_button(client, callback_query: CallbackQuery):
 🔹 **Server:** [Hivabytes](https://render)  
 🔹 **Language:** [Python3](https://python.org)  
 🔹 **Database:** [MongoDB](https://mongodb.com)  
-👨‍💻 **Developer:** [ShivamNox](https://t.me/pulsehub)
+👨‍💻 **Developer:** [ShivamNox](https://t.me/pulsehub1)
 """,
     disable_web_page_preview=True,
     reply_markup=InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/pulsehub"), InlineKeyboardButton("🔙 Back", callback_data="back")]
+            [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/pulsehub1"), InlineKeyboardButton("🔙 Back", callback_data="back")]
         ]
     )
 )
@@ -155,11 +155,11 @@ I even support channels for effortless sharing. 📡
 ''',
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("☁️ Support", url="https://t.me/pulsehub"),
-                 InlineKeyboardButton("⚡️ Updates", url="https://t.me/pulsehub")],
+                [InlineKeyboardButton("☁️ Support", url="https://t.me/pulsehub1"),
+                 InlineKeyboardButton("⚡️ Updates", url="https://t.me/pulsehub1")],
                 [InlineKeyboardButton("❓ Help", callback_data="help"),
                  InlineKeyboardButton("ℹ️ About", callback_data="about")],
-                [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/pulsehub")]
+                [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/pulsehub1")]
             ]
         )
     )
@@ -203,7 +203,7 @@ async def help_handler(bot, message):
         except Exception:
             await bot.send_message(
                 chat_id=message.chat.id,
-                text="__Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍᴇ__ [Support](https://t.me/pulsehub).",
+                text="__Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍᴇ__ [Support](https://t.me/pulsehub1).",
                 disable_web_page_preview=True)
             return
     await message.reply_text(
@@ -213,8 +213,8 @@ async def help_handler(bot, message):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("💁‍♂️ Owner", url="https://t.me/pulsehub")],
-                [InlineKeyboardButton("💥 Source Code", url="https://t.me/pulsehub")]
+                [InlineKeyboardButton("💁‍♂️ Owner", url="https://t.me/pulsehub1")],
+                [InlineKeyboardButton("💥 Source Code", url="https://t.me/pulsehub1")]
             ]
         )
     )
