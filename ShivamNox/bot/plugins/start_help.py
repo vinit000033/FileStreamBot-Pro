@@ -70,7 +70,7 @@ async def start(b, m):
         except Exception:
             await b.send_message(
                 chat_id=m.chat.id,
-                text="<i>𝓢𝓸𝓶𝓮𝓽𝓱𝓲𝓷𝓰 𝔀𝓮𝓷𝓽 𝔀𝓻𝓸𝓷𝓰</i> <b> <a href='https://t.me/innoshiv'>CLICK HERE FOR SUPPORT </a></b>",
+                text="<i>𝓢𝓸𝓶𝓮𝓽𝓱𝓲𝓷𝓰 𝔀𝓮𝓷𝓽 𝔀𝓻𝓸𝓷𝓰</i> <b> <a href='https://t.me/pulsehub'>CLICK HERE FOR SUPPORT </a></b>",
                 
                 disable_web_page_preview=True)
             return
@@ -88,11 +88,11 @@ I even support channels for effortless sharing. 📡
 ''',
     reply_markup=InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("☁️ Support", url="https://t.me/innoshiv"),
-             InlineKeyboardButton("⚡️ Updates", url="https://t.me/innoshiv")],
+            [InlineKeyboardButton("☁️ Support", url="https://t.me/pulsehub"),
+             InlineKeyboardButton("⚡️ Updates", url="https://t.me/pulsehub")],
             [InlineKeyboardButton("❓ Help", callback_data="help"),
              InlineKeyboardButton("ℹ️ About", callback_data="about")],
-            [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/shivamnox")]
+            [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/pulsehub")]
         ]
     )
 )
@@ -109,7 +109,7 @@ async def on_help_button(client, callback_query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("☁️ Support", url="https://t.me/innoshiv")],
+                [InlineKeyboardButton("☁️ Support", url="https://t.me/pulsehub")],
                 [InlineKeyboardButton("🔙 Back", callback_data="back")]
             ]
         )
