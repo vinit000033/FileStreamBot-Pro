@@ -126,15 +126,15 @@ async def on_about_button(client, callback_query: CallbackQuery):
 
 🔹 **Bot Name:** [File Stream Bot](https://t.me/filestream_iibot)  
 🔹 **Library:** [Pyrogram](https://docs.pyrogram.org)  
-🔹 **Server:** [Hivabytes](https://hivabytes)  
+🔹 **Server:** [Hivabytes](https://render)  
 🔹 **Language:** [Python3](https://python.org)  
 🔹 **Database:** [MongoDB](https://mongodb.com)  
-👨‍💻 **Developer:** [ShivamNox](https://t.me/shivamnox)
+👨‍💻 **Developer:** [ShivamNox](https://t.me/pulsehub)
 """,
     disable_web_page_preview=True,
     reply_markup=InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/shivamnox"), InlineKeyboardButton("🔙 Back", callback_data="back")]
+            [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/pulsehub"), InlineKeyboardButton("🔙 Back", callback_data="back")]
         ]
     )
 )
@@ -155,11 +155,11 @@ I even support channels for effortless sharing. 📡
 ''',
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("☁️ Support", url="https://t.me/Innoshiv"),
-                 InlineKeyboardButton("⚡️ Updates", url="https://t.me/innoshiv")],
+                [InlineKeyboardButton("☁️ Support", url="https://t.me/pulsehub"),
+                 InlineKeyboardButton("⚡️ Updates", url="https://t.me/pulsehub")],
                 [InlineKeyboardButton("❓ Help", callback_data="help"),
                  InlineKeyboardButton("ℹ️ About", callback_data="about")],
-                [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/shivamnox")]
+                [InlineKeyboardButton("🧑‍💻 Developer", url="https://t.me/pulsehub")]
             ]
         )
     )
@@ -203,7 +203,7 @@ async def help_handler(bot, message):
         except Exception:
             await bot.send_message(
                 chat_id=message.chat.id,
-                text="__Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍᴇ__ [Support](https://t.me/innoshiv).",
+                text="__Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍᴇ__ [Support](https://t.me/pulsehub).",
                 disable_web_page_preview=True)
             return
     await message.reply_text(
@@ -213,8 +213,8 @@ async def help_handler(bot, message):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("💁‍♂️ Owner", url="https://t.me/shivamnox")],
-                [InlineKeyboardButton("💥 Source Code", url="https://t.me/innoshiv")]
+                [InlineKeyboardButton("💁‍♂️ Owner", url="https://t.me/pulsehub")],
+                [InlineKeyboardButton("💥 Source Code", url="https://t.me/pulsehub")]
             ]
         )
     )
