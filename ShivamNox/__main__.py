@@ -5,7 +5,6 @@ import asyncio
 import logging
 import importlib
 from pathlib import Path
-from pyrogram import idle
 from aiohttp import web
 from pyrogram.errors import BadMsgNotification
 from pyrogram.types import BotCommand
@@ -30,9 +29,6 @@ logger = logging.getLogger(__name__)
 
 ppath = "ShivamNox/bot/plugins/*.py"
 files = glob.glob(ppath)
-
-# Get event loop
-loop = asyncio.get_event_loop()
 
 
 async def start_bot_with_retry():
@@ -72,54 +68,58 @@ async def start_services():
     """Main startup function"""
     print('\n')
     print('------------------- Initializing Telegram Bot -------------------')
-    
+
     # Start bot
     if not await start_bot_with_retry():
         print("❌ Failed to start bot!")
         sys.exit(1)
-    
+
     bot_info = await StreamBot.get_me()
     StreamBot.username = bot_info.username
     print(f"✅ Bot: @{StreamBot.username}")
-    
+
     await set_bot_commands()
     print("------------------------------ DONE ------------------------------")
-    
+
     # Initialize clients
     print("---------------------- Initializing Clients ----------------------")
     await initialize_clients()
     print("------------------------------ DONE ------------------------------")
-    
+
     # Import plugins
     print('--------------------------- Importing ---------------------------')
     for name in files:
         try:
-            with open(name) as a:
-                patt = Path(a.name)
-                plugin_name = patt.stem.replace(".py", "")
-                plugins_dir = Path(f"ShivamNox/bot/plugins/{plugin_name}.py")
-                import_path = ".plugins.{}".format(plugin_name)
-                spec = importlib.util.spec_from_file_location(import_path, plugins_dir)
-                load = importlib.util.module_from_spec(spec)
-                spec.loader.exec_module(load)
-                sys.modules["ShivamNox.bot.plugins." + plugin_name] = load
-                print(f"Imported => {plugin_name}")
+            patt = Path(name)
+            plugin_name = patt.stem
+            plugins_dir = Path(f"ShivamNox/bot/plugins/{plugin_name}.py")
+
+            spec = importlib.util.spec_from_file_location(
+                f"ShivamNox.bot.plugins.{plugin_name}", plugins_dir
+            )
+            load = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(load)
+
+            sys.modules[f"ShivamNox.bot.plugins.{plugin_name}"] = load
+            print(f"Imported => {plugin_name}")
         except Exception as e:
             print(f"Failed => {plugin_name}: {e}")
-    
+
     # Keep-alive
     if Var.ON_HEROKU:
         print("------------------ Starting Keep Alive Service ------------------")
         asyncio.create_task(ping_server())
-    
+
     # Web server
     print('-------------------- Initializing Web Server --------------------')
     app = web.AppRunner(await web_server())
     await app.setup()
+
     bind_address = "0.0.0.0" if Var.ON_HEROKU else Var.BIND_ADRESS
     await web.TCPSite(app, bind_address, Var.PORT).start()
+
     print('----------------------------- DONE ------------------------------')
-    
+
     print('\n')
     print('----------------------- Service Started -------------------------')
     print(f'  Bot: @{StreamBot.username}')
@@ -128,15 +128,15 @@ async def start_services():
     if Var.ON_HEROKU:
         print(f'  URL: {Var.FQDN}')
     print('-----------------------------------------------------------------')
-    
-    # THIS IS IMPORTANT - Keep bot running
-    await idle()
+
+    # ✅ Keep bot running forever (replacement for idle)
+    await asyncio.Event().wait()
 
 
-# ============ THIS IS THE CORRECT WAY TO RUN ============
+# ============ CORRECT ENTRY POINT ============
 if __name__ == '__main__':
     try:
-        loop.run_until_complete(start_services())
+        asyncio.run(start_services())
     except KeyboardInterrupt:
         logging.info('Service Stopped')
-# ========================================================
+# ============================================
